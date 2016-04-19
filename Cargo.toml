@@ -6,6 +6,7 @@ version = "0.1.0"
 build = "build.rs"
 repository = "https://github.com/kstep/parsswd"
 readme = "README.md"
+license = "MIT/Apache-2.0"
 
 [build-dependencies]
 skeptic = "0.4.0"
