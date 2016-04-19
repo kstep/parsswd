@@ -1,7 +1,14 @@
 [package]
-name = "parsswd"
-version = "0.1.0"
 authors = ["Konstantin Stepanov <konstantin.stepanov@adform.com>"]
 description = "Native Rust passwd and group files parser"
+name = "parsswd"
+version = "0.1.0"
+build = "build.rs"
+
+[build-dependencies]
+skeptic = "0.4.0"
 
 [dependencies]
+
+[dev-dependencies]
+skeptic = "0.4.0"
