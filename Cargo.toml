@@ -4,6 +4,8 @@ description = "Native Rust passwd and group files parser"
 name = "parsswd"
 version = "0.1.0"
 build = "build.rs"
+repository = "https://github.com/kstep/parsswd"
+readme = "README.md"
 
 [build-dependencies]
 skeptic = "0.4.0"
