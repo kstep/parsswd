@@ -39,7 +39,7 @@ impl<'a> GrpEnt<'a> {
             name: entries.next()?,
             passwd: entries.next()?,
             gid: entries.next().and_then(|s| s.parse().ok())?,
-            users: entries.next()?,
+            users: entries.next()?.split(',').collect(),
         })
     }
 }
