@@ -13,13 +13,13 @@ impl<'a> PwEnt<'a> {
     pub fn from_str(s: &'a str) -> Option<PwEnt<'a>> {
         let mut entries = s.splitn(7, ':');
         Some(PwEnt {
-            name: match entries.next() { None => return None, Some(s) => s },
-            passwd: match entries.next() { None => return None, Some(s) => s },
-            uid: match entries.next().and_then(|s| s.parse().ok()) { None => return None, Some(s) => s },
-            gid: match entries.next().and_then(|s| s.parse().ok()) { None => return None, Some(s) => s },
-            gecos: match entries.next() { None => return None, Some(s) => s },
-            home_dir: match entries.next() { None => return None, Some(s) => s },
-            shell: match entries.next() { None => return None, Some(s) => s },
+            name: entries.next()?,
+            passwd: entries.next()?,
+            uid: entries.next().and_then(|s| s.parse().ok())?,
+            gid: entries.next().and_then(|s| s.parse().ok())?,
+            gecos: entries.next()?,
+            home_dir: entries.next()?,
+            shell: entries.next()?,
         })
     }
 }
@@ -36,10 +36,10 @@ impl<'a> GrpEnt<'a> {
     pub fn from_str(s: &'a str) -> Option<GrpEnt<'a>> {
         let mut entries = s.splitn(4, ':');
         Some(GrpEnt {
-            name: match entries.next() { None => return None, Some(s) => s },
-            passwd: match entries.next() { None => return None, Some(s) => s },
-            gid: match entries.next().and_then(|s| s.parse().ok()) { None => return None, Some(s) => s },
-            users: match entries.next() { None => return None, Some(s) => s.split(',').collect() },
+            name: entries.next()?,
+            passwd: entries.next()?,
+            gid: entries.next().and_then(|s| s.parse().ok())?,
+            users: entries.next()?,
         })
     }
 }
